@@ -2,7 +2,7 @@ export default [
   {
     _id: 1,
     name: "Introduction to Rocket Propulsion",
-    course: "RS101",
+    course: 1,
     lessons: [
       {
         _id: 1,
@@ -27,7 +27,7 @@ export default [
   {
     _id: 2,
     name: "Fuel and Combustion",
-    course: "RS101",
+    course: 1,
     lessons: [
       {
         _id: 4,
@@ -52,7 +52,7 @@ export default [
   {
     _id: 3,
     name: "Nozzle Design",
-    course: "RS101",
+    course: 1,
     lessons: [
       {
         _id: 7,
@@ -77,7 +77,7 @@ export default [
   {
     _id: 4,
     name: "Fundamentals of Aerodynamics",
-    course: "RS102",
+    course: 2,
     lessons: [
       {
         _id: 10,
@@ -103,7 +103,7 @@ export default [
   {
     _id: 5,
     name: "Subsonic and Supersonic Flow",
-    course: "RS102",
+    course: 2,
     lessons: [
       {
         _id: 13,
@@ -130,7 +130,7 @@ export default [
   {
     _id: 6,
     name: "Aerodynamic Heating",
-    course: "RS102",
+    course: 2,
     lessons: [
       {
         _id: 16,
@@ -157,7 +157,7 @@ export default [
   {
     _id: 7,
     name: "Spacecraft Structural Design",
-    course: "RS103",
+    course: 3,
     lessons: [
       {
         _id: 19,
@@ -183,7 +183,7 @@ export default [
   {
     _id: 8,
     name: "Orbital Mechanics",
-    course: "RS103",
+    course: 3,
     lessons: [
       {
         _id: 22,
@@ -209,7 +209,7 @@ export default [
   {
     _id: 9,
     name: "Spacecraft Systems Engineering",
-    course: "RS103",
+    course: 3,
     lessons: [
       {
         _id: 25,
@@ -236,7 +236,7 @@ export default [
   {
     _id: 10,
     name: "Fundamentals of Organic Chemistry",
-    course: "CH1230",
+    course: 4,
     lessons: [
       {
         _id: 28,
@@ -264,7 +264,7 @@ export default [
   {
     _id: 11,
     name: "Hydrocarbons",
-    course: "CH1230",
+    course: 4,
     lessons: [
       {
         _id: 31,
@@ -292,7 +292,7 @@ export default [
   {
     _id: 12,
     name: "Reactions and Mechanisms",
-    course: "CH1230",
+    course: 4,
     lessons: [
       {
         _id: 34,
@@ -318,7 +318,7 @@ export default [
   {
     _id: 13,
     name: "Introduction to Inorganic Chemistry",
-    course: "CH1240",
+    course: 5,
     lessons: [
       {
         _id: 37,
@@ -346,7 +346,7 @@ export default [
   {
     _id: 14,
     name: "Transition Metals and Coordination Chemistry",
-    course: "CH1240",
+    course: 5,
     lessons: [
       {
         _id: 40,
@@ -374,7 +374,7 @@ export default [
   {
     _id: 15,
     name: "Main Group Chemistry",
-    course: "CH1240",
+    course: 5,
     lessons: [
       {
         _id: 43,
@@ -402,7 +402,7 @@ export default [
   {
     _id: 16,
     name: "Thermodynamics",
-    course: "CH1250",
+    course: 6,
     lessons: [
       {
         _id: 46,
@@ -430,7 +430,7 @@ export default [
   {
     _id: 17,
     name: "Chemical Kinetics",
-    course: "CH1250",
+    course: 6,
     lessons: [
       {
         _id: 49,
@@ -458,7 +458,7 @@ export default [
   {
     _id: 18,
     name: "Quantum Chemistry",
-    course: "CH1250",
+    course: 6,
     lessons: [
       {
         _id: 52,
@@ -486,7 +486,7 @@ export default [
   {
     _id: 19,
     name: "Introduction to Elvish Languages",
-    course: "ME101",
+    course: 7,
     lessons: [
       {
         _id: 55,
@@ -513,7 +513,7 @@ export default [
   {
     _id: 20,
     name: "Languages of Men and Dwarves",
-    course: "ME101",
+    course: 7,
     lessons: [
       {
         _id: 58,
@@ -541,7 +541,7 @@ export default [
   {
     _id: 21,
     name: "Other Languages of Middle-earth",
-    course: "ME101",
+    course: 7,
     lessons: [
       {
         _id: 61,
@@ -569,7 +569,7 @@ export default [
   {
     _id: 22,
     name: "Foundations of Diplomacy in Middle-earth",
-    course: "ME102",
+    course: 8,
     lessons: [
       {
         _id: 64,
@@ -597,7 +597,7 @@ export default [
   {
     _id: 23,
     name: "Diplomatic Relations between Elves and Men",
-    course: "ME102",
+    course: 8,
     lessons: [
       {
         _id: 67,
@@ -625,7 +625,7 @@ export default [
   {
     _id: 24,
     name: "The Role of Conflict in Diplomacy",
-    course: "ME102",
+    course: 8,
     lessons: [
       {
         _id: 70,
@@ -653,7 +653,7 @@ export default [
   {
     _id: 25,
     name: "The Nature and Origins of Magic in Middle-earth",
-    course: "ME103",
+    course: 9,
     lessons: [
       {
         _id: 73,
@@ -681,7 +681,7 @@ export default [
   {
     _id: 26,
     name: "Magic of the Free Peoples: Elves, Men, and Dwarves",
-    course: "ME103",
+    course: 9,
     lessons: [
       {
         _id: 76,
@@ -709,7 +709,7 @@ export default [
   {
     _id: 27,
     name: "Dark Magic and the Forces of Evil",
-    course: "ME103",
+    course: 9,
     lessons: [
       {
         _id: 79,
@@ -737,7 +737,7 @@ export default [
   {
     _id: 28,
     name: "Foundations of Democratic Education",
-    course: "EDU201",
+    course: 10,
     lessons: [
       {
         _id: 82,
@@ -765,7 +765,7 @@ export default [
   {
     _id: 29,
     name: "Democratic Practices in Schools",
-    course: "EDU201",
+    course: 10,
     lessons: [
       {
         _id: 85,
@@ -793,7 +793,7 @@ export default [
   {
     _id: 30,
     name: "Challenges and Innovations in Democratic Education",
-    course: "EDU201",
+    course: 10,
     lessons: [
       {
         _id: 88,
@@ -821,7 +821,7 @@ export default [
   {
     _id: 31,
     name: "Philosophical Foundations of Independence",
-    course: "HIS301",
+    course: 11,
     lessons: [
       {
         _id: 91,
@@ -849,7 +849,7 @@ export default [
   {
     _id: 32,
     name: "Revolutionary Thought and Liberation Movements",
-    course: "HIS301",
+    course: 11,
     lessons: [
       {
         _id: 94,
@@ -877,7 +877,7 @@ export default [
   {
     _id: 33,
     name: "Contemporary Perspectives on Liberation",
-    course: "HIS301",
+    course: 11,
     lessons: [
       {
         _id: 97,
@@ -905,7 +905,7 @@ export default [
   {
     _id: 34,
     name: "The Beginnings of Public Education",
-    course: "EDU303",
+    course: 12,
     lessons: [
       {
         _id: 100,
@@ -933,7 +933,7 @@ export default [
   {
     _id: 35,
     name: "Pedagogical Innovations of the Early 19th Century",
-    course: "EDU303",
+    course: 12,
     lessons: [
       {
         _id: 103,
@@ -961,7 +961,7 @@ export default [
   {
     _id: 36,
     name: "Challenges and Reforms in 19th Century Education",
-    course: "EDU303",
+    course: 12,
     lessons: [
       {
         _id: 106,
@@ -989,7 +989,7 @@ export default [
   {
     _id: 37,
     name: "Introduction to Christian Ethics",
-    course: "THEO101",
+    course: 13,
     lessons: [
       {
         _id: 109,
@@ -1017,7 +1017,7 @@ export default [
   {
     _id: 38,
     name: "Major Themes in Christian Ethics",
-    course: "THEO101",
+    course: 13,
     lessons: [
       {
         _id: 112,
@@ -1045,7 +1045,7 @@ export default [
   {
     _id: 39,
     name: "Contemporary Issues in Christian Ethics",
-    course: "THEO101",
+    course: 13,
     lessons: [
       {
         _id: 115,
@@ -1073,7 +1073,7 @@ export default [
   {
     _id: 40,
     name: "Origins of Early Christianity",
-    course: "HIS201",
+    course: 14,
     lessons: [
       {
         _id: 118,
@@ -1101,7 +1101,7 @@ export default [
   {
     _id: 41,
     name: "The Formation of Christian Communities",
-    course: "HIS201",
+    course: 14,
     lessons: [
       {
         _id: 121,
@@ -1129,7 +1129,7 @@ export default [
   {
     _id: 42,
     name: "Challenges and Persecutions",
-    course: "HIS201",
+    course: 14,
     lessons: [
       {
         _id: 124,
@@ -1157,7 +1157,7 @@ export default [
   {
     _id: 43,
     name: "Foundations of Christian Leadership",
-    course: "MIN301",
+    course: 15,
     lessons: [
       {
         _id: 127,
@@ -1185,7 +1185,7 @@ export default [
   {
     _id: 44,
     name: "Leadership Skills and Practices",
-    course: "MIN301",
+    course: 15,
     lessons: [
       {
         _id: 130,
@@ -1213,7 +1213,7 @@ export default [
   {
     _id: 45,
     name: "Service and Community Engagement",
-    course: "MIN301",
+    course: 15,
     lessons: [
       {
         _id: 133,
@@ -1241,7 +1241,7 @@ export default [
   {
     _id: 46,
     name: "Introduction to Sufi Philosophy",
-    course: "ISL301",
+    course: 16,
     lessons: [
       {
         _id: 136,
@@ -1269,7 +1269,7 @@ export default [
   {
     _id: 47,
     name: "Practices and Rituals in Sufism",
-    course: "ISL301",
+    course: 16,
     lessons: [
       {
         _id: 139,
@@ -1297,7 +1297,7 @@ export default [
   {
     _id: 48,
     name: "Sufism and Contemporary Issues",
-    course: "ISL301",
+    course: 16,
     lessons: [
       {
         _id: 142,
@@ -1325,7 +1325,7 @@ export default [
   {
     _id: 49,
     name: "Foundations of Islamic Ethics",
-    course: "ISL202",
+    course: 17,
     lessons: [
       {
         _id: 145,
@@ -1353,7 +1353,7 @@ export default [
   {
     _id: 50,
     name: "Key Ethical Principles in Islam",
-    course: "ISL202",
+    course: 17,
     lessons: [
       {
         _id: 148,
@@ -1381,7 +1381,7 @@ export default [
   {
     _id: 51,
     name: "Contemporary Ethical Issues in Islam",
-    course: "ISL202",
+    course: 17,
     lessons: [
       {
         _id: 151,
@@ -1409,7 +1409,7 @@ export default [
   {
     _id: 52,
     name: "Introduction to Islamic Esotericism",
-    course: "ISL403",
+    course: 18,
     lessons: [
       {
         _id: 154,
@@ -1437,7 +1437,7 @@ export default [
   {
     _id: 53,
     name: "Practices of Islamic Esotericism",
-    course: "ISL403",
+    course: 18,
     lessons: [
       {
         _id: 157,
@@ -1465,7 +1465,7 @@ export default [
   {
     _id: 54,
     name: "Theological and Philosophical Dimensions",
-    course: "ISL403",
+    course: 18,
     lessons: [
       {
         _id: 160,
@@ -1493,7 +1493,7 @@ export default [
   {
     _id: 55,
     name: "Foundations of Ancient Chinese Environmental Philosophy",
-    course: "ENV101",
+    course: 19,
     lessons: [
       {
         _id: 163,
@@ -1521,7 +1521,7 @@ export default [
   {
     _id: 56,
     name: "Ancient Practices of Environmental Management",
-    course: "ENV101",
+    course: 19,
     lessons: [
       {
         _id: 166,
@@ -1549,7 +1549,7 @@ export default [
   {
     _id: 57,
     name: "Influence of Ancient Environmental Management on Modern Practices",
-    course: "ENV101",
+    course: 19,
     lessons: [
       {
         _id: 169,
@@ -1577,7 +1577,7 @@ export default [
   {
     _id: 58,
     name: "Introduction to Chinese Mythology",
-    course: "MGT201",
+    course: 20,
     lessons: [
       {
         _id: 172,
@@ -1605,7 +1605,7 @@ export default [
   {
     _id: 59,
     name: "Leadership Archetypes in Chinese Myths",
-    course: "MGT201",
+    course: 20,
     lessons: [
       {
         _id: 175,
@@ -1633,7 +1633,7 @@ export default [
   {
     _id: 60,
     name: "Applying Mythological Wisdom to Modern Leadership",
-    course: "MGT201",
+    course: 20,
     lessons: [
       {
         _id: 178,
@@ -1661,7 +1661,7 @@ export default [
   {
     _id: 61,
     name: "Introduction to Hydraulic Engineering",
-    course: "ENG303",
+    course: 21,
     lessons: [
       {
         _id: 181,
@@ -1689,7 +1689,7 @@ export default [
   {
     _id: 62,
     name: "Hydraulic Systems in Ancient Civilizations",
-    course: "ENG303",
+    course: 21,
     lessons: [
       {
         _id: 184,
@@ -1717,7 +1717,7 @@ export default [
   {
     _id: 63,
     name: "Legacy of Ancient Hydraulic Engineering",
-    course: "ENG303",
+    course: 21,
     lessons: [
       {
         _id: 187,

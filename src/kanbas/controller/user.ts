@@ -1,13 +1,9 @@
 import { Application } from "express";
 import * as dao from "../dao/userDao";
+import * as courseDao from "../dao/courseDao";
+import * as enrollmentDao from "../dao/enrollmentDao";
 
 export default function UserController(app: Application) {
-  const findAllUsers = (req: any, res: any) => {};
-
-  const findUserById = (req: any, res: any) => {};
-
-  const createUser = (req: any, res: any) => {};
-
   const updateUser = (req: any, res: any) => {
     const id = parseInt(req.params.id);
     const updatedUser = req.body;
@@ -16,8 +12,6 @@ export default function UserController(app: Application) {
     req.session["currentUser"] = currentUser;
     res.json(currentUser);
   };
-
-  const deleteUser = (req: any, res: any) => {};
 
   const signup = (req: any, res: any) => {
     const user = dao.findUserByUsername(req.body.username);
@@ -57,14 +51,33 @@ export default function UserController(app: Application) {
     res.json(currentUser);
   };
 
+  const findCoursesForEnrolledUser = (req: any, res: any) => {
+    const userId = parseInt(req.params.id);
+    const currentUser = req.session["currentUser"];
+    if (!currentUser || currentUser._id !== userId) {
+      res.sendStatus(401);
+      return;
+    }
+    res.json(courseDao.findCoursesForEnrolledUser(currentUser._id));
+  };
+
+  const createCourse = (req: any, res: any) => {
+    const userId = parseInt(req.params.id);
+    const currentUser = req.session["currentUser"];
+    if (!currentUser || currentUser._id !== userId) {
+      res.sendStatus(401);
+      return;
+    }
+    const course = courseDao.createCourse(req.body);
+    enrollmentDao.enrollUserInCourse(currentUser._id, course.number);
+    res.json(course);
+  };
+
   app.get("/api/users/profile", profile);
-  app.get("/api/users", findAllUsers);
-  app.get("/api/users/:id", findUserById);
-  app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);
-  app.delete("/api/users/:id", deleteUser);
   app.post("/api/users/signup", signup);
   app.post("/api/users/login", login);
   app.post("/api/users/logout", logout);
-  // app.get("/api/users/profile", profile);
+  app.get("/api/users/:id/courses", findCoursesForEnrolledUser);
+  app.post("/api/users/:id/courses", createCourse);
 }

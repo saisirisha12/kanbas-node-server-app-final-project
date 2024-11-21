@@ -1,9 +1,11 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import Hello from "./routes/hello";
 import Lab5 from "./routes/lab5";
 import UserController from "./kanbas/controller/user";
 import session, { SessionOptions } from "express-session";
+import CourseController from "./kanbas/controller/course";
 
 const port = process.env.PORT || 4000;
 const app = express();
@@ -35,6 +37,7 @@ app.use(session(sessionOptions));
 app.use(express.json());
 
 UserController(app);
+CourseController(app);
 
 Hello(app);
 Lab5(app);

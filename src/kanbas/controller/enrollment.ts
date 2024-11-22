@@ -1,5 +1,5 @@
 import { Application } from "express";
-import * as dao from "../dao/enrollmentDao";
+import * as dao from "../dao/courseDao";
 
 export default function EnrollmentController(app: Application) {
   const enrollUserInCourse = (req: any, res: any) => {

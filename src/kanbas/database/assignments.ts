@@ -2,7 +2,7 @@ export default [
   {
     _id: 1,
     title: "Propulsion Assignment",
-    course: "RS101",
+    course: 1,
     modules: ["M101"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-25T23:59:59",
@@ -14,7 +14,7 @@ export default [
   {
     _id: 2,
     title: "Combustion Analysis",
-    course: "RS101",
+    course: 1,
     modules: ["M102"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -26,7 +26,7 @@ export default [
   {
     _id: 3,
     title: "Nozzle Design Project",
-    course: "RS101",
+    course: 1,
     modules: ["M101", "M102"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -38,7 +38,7 @@ export default [
   {
     _id: 4,
     title: "Aerodynamics Quiz",
-    course: "RS102",
+    course: 2,
     modules: ["M201"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-20T23:59:59",
@@ -50,7 +50,7 @@ export default [
   {
     _id: 5,
     title: "Flow Analysis",
-    course: "RS102",
+    course: 2,
     modules: ["M202"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -62,7 +62,7 @@ export default [
   {
     _id: 6,
     title: "Heating Analysis",
-    course: "RS102",
+    course: 2,
     modules: ["M202", "M203"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-06T23:59:59",
@@ -74,7 +74,7 @@ export default [
   {
     _id: 7,
     title: "Structural Design Task",
-    course: "RS103",
+    course: 3,
     modules: ["M301"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-25T23:59:59",
@@ -86,7 +86,7 @@ export default [
   {
     _id: 8,
     title: "Orbital Calculations",
-    course: "RS103",
+    course: 3,
     modules: ["M302"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -98,7 +98,7 @@ export default [
   {
     _id: 9,
     title: "Systems Engineering Exam",
-    course: "RS103",
+    course: 3,
     modules: ["M303"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -110,7 +110,7 @@ export default [
   {
     _id: 10,
     title: "Organic Compound Synthesis Report",
-    course: "CH1230",
+    course: 4,
     modules: ["M401", "M402"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-20T23:59:59",
@@ -122,7 +122,7 @@ export default [
   {
     _id: 11,
     title: "Spectroscopy Analysis Assignment",
-    course: "CH1230",
+    course: 4,
     modules: ["M402"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-10-25T23:59:59",
@@ -134,7 +134,7 @@ export default [
   {
     _id: 12,
     title: "Functional Groups Presentation",
-    course: "CH1230",
+    course: 4,
     modules: ["M401"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -146,7 +146,7 @@ export default [
   {
     _id: 13,
     title: "Inorganic Reaction Mechanisms",
-    course: "CH1240",
+    course: 5,
     modules: ["M501"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -158,7 +158,7 @@ export default [
   {
     _id: 14,
     title: "Coordination Compounds Lab Report",
-    course: "CH1240",
+    course: 5,
     modules: ["M502"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -170,7 +170,7 @@ export default [
   {
     _id: 15,
     title: "Crystal Field Theory Assignment",
-    course: "CH1240",
+    course: 5,
     modules: ["M501", "M502"],
     availableFrom: "2024-10-15T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -182,7 +182,7 @@ export default [
   {
     _id: 16,
     title: "Thermodynamics Experiment",
-    course: "CH1250",
+    course: 6,
     modules: ["M601"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -194,7 +194,7 @@ export default [
   {
     _id: 17,
     title: "Chemical Kinetics Study",
-    course: "CH1250",
+    course: 6,
     modules: ["M602"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -206,7 +206,7 @@ export default [
   {
     _id: 18,
     title: "Quantum Chemistry Paper",
-    course: "CH1250",
+    course: 6,
     modules: ["M601", "M603"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-15T23:59:59",
@@ -218,7 +218,7 @@ export default [
   {
     _id: 19,
     title: "Analysis of Elvish Texts",
-    course: "ME101",
+    course: 7,
     modules: ["M701"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-25T23:59:59",
@@ -230,7 +230,7 @@ export default [
   {
     _id: 20,
     title: "Language Construction Project",
-    course: "ME101",
+    course: 7,
     modules: ["M702"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -242,7 +242,7 @@ export default [
   {
     _id: 21,
     title: "Script Interpretation Assignment",
-    course: "ME101",
+    course: 7,
     modules: ["M701"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -254,7 +254,7 @@ export default [
   {
     _id: 22,
     title: "Diplomatic Strategies Paper",
-    course: "ME102",
+    course: 8,
     modules: ["M801"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -266,7 +266,7 @@ export default [
   {
     _id: 23,
     title: "Inter-species Communication Role-Play",
-    course: "ME102",
+    course: 8,
     modules: ["M802"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -278,7 +278,7 @@ export default [
   {
     _id: 24,
     title: "Case Study on Elven Diplomacy",
-    course: "ME102",
+    course: 8,
     modules: ["M801"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -290,7 +290,7 @@ export default [
   {
     _id: 25,
     title: "Analysis of Magical Texts",
-    course: "ME103",
+    course: 9,
     modules: ["M901"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -302,7 +302,7 @@ export default [
   {
     _id: 26,
     title: "Practical Application of Magic",
-    course: "ME103",
+    course: 9,
     modules: ["M902"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -314,7 +314,7 @@ export default [
   {
     _id: 27,
     title: "Research on Historical Magic Practices",
-    course: "ME103",
+    course: 9,
     modules: ["M901", "M903"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-15T23:59:59",
@@ -326,7 +326,7 @@ export default [
   {
     _id: 28,
     title: "Educational Philosophy Essay",
-    course: "EDU201",
+    course: 10,
     modules: ["M1001"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -338,7 +338,7 @@ export default [
   {
     _id: 29,
     title: "Case Study on Democratic Classrooms",
-    course: "EDU201",
+    course: 10,
     modules: ["M1002"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -350,7 +350,7 @@ export default [
   {
     _id: 30,
     title: "Designing Inclusive Learning Environments",
-    course: "EDU201",
+    course: 10,
     modules: ["M1001", "M1003"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-15T23:59:59",
@@ -362,7 +362,7 @@ export default [
   {
     _id: 31,
     title: "Independent Movements Research Paper",
-    course: "HIS301",
+    course: 11,
     modules: ["M1101"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -374,7 +374,7 @@ export default [
   {
     _id: 32,
     title: "Case Studies in Liberation Movements",
-    course: "HIS301",
+    course: 11,
     modules: ["M1102"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -386,7 +386,7 @@ export default [
   {
     _id: 33,
     title: "Philosophical Analysis of Independence",
-    course: "HIS301",
+    course: 11,
     modules: ["M1101", "M1103"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",
@@ -398,7 +398,7 @@ export default [
   {
     _id: 34,
     title: "Innovations in Education Report",
-    course: "EDU303",
+    course: 12,
     modules: ["M1201"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -410,7 +410,7 @@ export default [
   {
     _id: 35,
     title: "19th Century Educational Practices Presentation",
-    course: "EDU303",
+    course: 12,
     modules: ["M1202"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -422,7 +422,7 @@ export default [
   {
     _id: 36,
     title: "Analysis of Educational Reform",
-    course: "EDU303",
+    course: 12,
     modules: ["M1201", "M1203"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-15T23:59:59",
@@ -434,7 +434,7 @@ export default [
   {
     _id: 37,
     title: "Christian Ethics Case Study",
-    course: "THEO101",
+    course: 13,
     modules: ["M1301"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -446,7 +446,7 @@ export default [
   {
     _id: 38,
     title: "Ethical Dilemmas Paper",
-    course: "THEO101",
+    course: 13,
     modules: ["M1302"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -458,7 +458,7 @@ export default [
   {
     _id: 39,
     title: "Comparative Ethics Analysis",
-    course: "THEO101",
+    course: 13,
     modules: ["M1301", "M1303"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-15T23:59:59",
@@ -470,7 +470,7 @@ export default [
   {
     _id: 40,
     title: "Apostolic Age Research Project",
-    course: "HIS201",
+    course: 14,
     modules: ["M1401"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-11-05T23:59:59",
@@ -482,7 +482,7 @@ export default [
   {
     _id: 41,
     title: "Early Christian Writings Assignment",
-    course: "HIS201",
+    course: 14,
     modules: ["M1402"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -494,7 +494,7 @@ export default [
   {
     _id: 42,
     title: "Historical Context of Early Christianity",
-    course: "HIS201",
+    course: 14,
     modules: ["M1401", "M1403"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",
@@ -506,7 +506,7 @@ export default [
   {
     _id: 43,
     title: "Leadership in Christian Communities Report",
-    course: "MIN301",
+    course: 15,
     modules: ["M1501"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -518,7 +518,7 @@ export default [
   {
     _id: 44,
     title: "Service Projects Analysis",
-    course: "MIN301",
+    course: 15,
     modules: ["M1502"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -530,7 +530,7 @@ export default [
   {
     _id: 45,
     title: "Comparative Leadership Styles Study",
-    course: "MIN301",
+    course: 15,
     modules: ["M1501", "M1503"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",
@@ -542,7 +542,7 @@ export default [
   {
     _id: 46,
     title: "Sufi Thought Paper",
-    course: "ISL301",
+    course: 16,
     modules: ["M1601"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -554,7 +554,7 @@ export default [
   {
     _id: 47,
     title: "Mystical Traditions Project",
-    course: "ISL301",
+    course: 16,
     modules: ["M1602"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -566,7 +566,7 @@ export default [
   {
     _id: 48,
     title: "Analysis of Sufi Poetry",
-    course: "ISL301",
+    course: 16,
     modules: ["M1601"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",
@@ -578,7 +578,7 @@ export default [
   {
     _id: 49,
     title: "Ethical Teachings Assignment",
-    course: "ISL202",
+    course: 17,
     modules: ["M1701"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -590,7 +590,7 @@ export default [
   {
     _id: 50,
     title: "Islamic Ethics Case Study",
-    course: "ISL202",
+    course: 17,
     modules: ["M1702"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -602,7 +602,7 @@ export default [
   {
     _id: 51,
     title: "Comparative Study of Ethical Texts",
-    course: "ISL202",
+    course: 17,
     modules: ["M1701", "M1703"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",
@@ -614,7 +614,7 @@ export default [
   {
     _id: 52,
     title: "Islamic Esotericism Research Paper",
-    course: "ISL403",
+    course: 18,
     modules: ["M1801"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -626,7 +626,7 @@ export default [
   {
     _id: 53,
     title: "Comparative Esoteric Traditions",
-    course: "ISL403",
+    course: 18,
     modules: ["M1802"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -638,7 +638,7 @@ export default [
   {
     _id: 54,
     title: "Practical Applications of Esotericism",
-    course: "ISL403",
+    course: 18,
     modules: ["M1801", "M1803"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",
@@ -650,7 +650,7 @@ export default [
   {
     _id: 55,
     title: "Environmental Philosophy Assignment",
-    course: "ENV101",
+    course: 19,
     modules: ["M1901"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -662,7 +662,7 @@ export default [
   {
     _id: 56,
     title: "Sustainable Practices Project",
-    course: "ENV101",
+    course: 19,
     modules: ["M1902"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -674,7 +674,7 @@ export default [
   {
     _id: 57,
     title: "Case Study of Ancient Practices",
-    course: "ENV101",
+    course: 19,
     modules: ["M1901", "M1903"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",
@@ -722,7 +722,7 @@ export default [
   {
     _id: 61,
     title: "Hydraulic Engineering Report",
-    course: "ENG303",
+    course: 21,
     modules: ["M2101"],
     availableFrom: "2024-10-01T00:00:00",
     availableUntil: "2024-10-30T23:59:59",
@@ -734,7 +734,7 @@ export default [
   {
     _id: 62,
     title: "Ancient Water Management Case Study",
-    course: "ENG303",
+    course: 21,
     modules: ["M2102"],
     availableFrom: "2024-10-05T00:00:00",
     availableUntil: "2024-11-10T23:59:59",
@@ -746,7 +746,7 @@ export default [
   {
     _id: 63,
     title: "Design Principles of Ancient Structures",
-    course: "ENG303",
+    course: 21,
     modules: ["M2101", "M2103"],
     availableFrom: "2024-10-10T00:00:00",
     availableUntil: "2024-11-20T23:59:59",

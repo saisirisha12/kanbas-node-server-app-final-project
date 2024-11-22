@@ -7,6 +7,8 @@ import UserController from "./kanbas/controller/user";
 import session, { SessionOptions } from "express-session";
 import CourseController from "./kanbas/controller/course";
 import ModuleController from "./kanbas/controller/module";
+import EnrollmentController from "./kanbas/controller/enrollment";
+import AssignmentController from "./kanbas/controller/assignment";
 
 const port = process.env.PORT || 4000;
 const app = express();
@@ -39,7 +41,9 @@ app.use(express.json());
 
 UserController(app);
 CourseController(app);
+EnrollmentController(app);
 ModuleController(app);
+AssignmentController(app);
 
 Hello(app);
 Lab5(app);

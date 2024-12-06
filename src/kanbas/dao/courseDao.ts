@@ -1,49 +1,114 @@
-import db from "../database/index";
+import { Course } from "../models/course";
+import CourseModel from "../models/schemas/course";
+import EnrollmentModel from "../models/schemas/enrollment";
+import { Types } from "mongoose";
 
-let { courses, enrollments } = db;
-
-export const findAllCourses = () => courses;
-
-export const findCoursesForEnrolledUser = (userId: number) => {
-  return courses.filter((course) =>
-    enrollments.some(
-      (enrollment) =>
-        enrollment.user === userId && enrollment.course === course._id
-    )
-  );
+export const findAllCourses = async () => {
+  try {
+    return await CourseModel.find();
+  } catch (error) {
+    return [];
+  }
 };
 
-export const createCourse = (course: any) => {
-  const newCourse = { ...course, _id: courses[courses.length - 1]._id + 1 };
-  courses = [...courses, newCourse];
-  return newCourse;
+export const findCoursesForEnrolledUser = async (userId: string) => {
+  try {
+    const enrollments = await EnrollmentModel.find({
+      user: new Types.ObjectId(userId),
+    }).populate("course");
+    const courses = enrollments.map((enrollment: any) => enrollment.course);
+    return courses;
+  } catch (error) {
+    return [];
+  }
 };
 
-export const updateCourse = (courseId: number, updatedCourse: any) => {
-  const course: any = courses.find((course) => course._id === courseId);
-  Object.assign(course, updatedCourse);
-  return course;
+export const createCourse = async (course: Course) => {
+  try {
+    return await CourseModel.create(course);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Unable to create course: " + error.message);
+    } else {
+      throw new Error("Unable to create course: Unknown error");
+    }
+  }
 };
 
-export const deleteCourse = (courseId: number) => {
-  courses = courses.filter((course) => course._id !== courseId);
-  enrollments = enrollments.filter(
-    (enrollment) => enrollment.course !== courseId
-  );
+export const updateCourse = async (courseId: string, updatedCourse: Course) => {
+  try {
+    return await CourseModel.findByIdAndUpdate(courseId, updatedCourse, {
+      new: true,
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Unable to update course: " + error.message);
+    } else {
+      throw new Error("Unable to update course: Unknown error");
+    }
+  }
 };
 
-export const enrollUserInCourse = (userId: number, courseId: number) => {
-  const enrollment = {
-    user: userId,
-    course: courseId,
-    _id: enrollments[enrollments.length - 1]._id + 1,
-  };
-  enrollments = [...enrollments, enrollment];
+export const deleteCourse = async (courseId: string) => {
+  try {
+    await EnrollmentModel.deleteMany({ course: courseId });
+    return await CourseModel.findByIdAndDelete(courseId);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Unable to delete course: " + error.message);
+    } else {
+      throw new Error("Unable to delete course: Unknown error");
+    }
+  }
 };
 
-export const unenrollUserFromCourse = (userId: number, courseId: number) => {
-  const enrollment = enrollments.find(
-    (e) => e.user === userId && e.course === courseId
-  );
-  enrollments = enrollments.filter((e) => e._id !== enrollment?._id);
+export const enrollUserInCourse = async (userId: string, courseId: string) => {
+  try {
+    const newEnrollment = new EnrollmentModel({
+      user: userId,
+      course: courseId,
+    });
+    return await newEnrollment.save();
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Unable to enroll user in course: " + error.message);
+    } else {
+      throw new Error("Unable to enroll user in course: Unknown error");
+    }
+  }
+};
+
+export const unenrollUserFromCourse = async (
+  userId: string,
+  courseId: string
+) => {
+  try {
+    const enrollment = await EnrollmentModel.findOne({
+      user: userId,
+      course: courseId,
+    });
+    if (!enrollment) {
+      throw new Error("Enrollment not found");
+    }
+
+    await EnrollmentModel.findByIdAndDelete(enrollment._id);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Unable to unenroll user from course: " + error.message);
+    } else {
+      throw new Error("Unable to unenroll user from course: Unknown error");
+    }
+  }
+};
+
+export const findUsersForCourse = async (courseId: string) => {
+  try {
+    const enrollments = await EnrollmentModel.find({
+      course: courseId,
+    }).populate("user");
+    const users = enrollments.map((enrollment: any) => enrollment.user);
+    return users;
+  } catch (error) {
+    return [];
+  }
 };

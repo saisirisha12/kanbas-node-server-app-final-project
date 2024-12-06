@@ -1,23 +1,58 @@
-import db from "../database/index";
+import { Types } from "mongoose";
+import { Module } from "../models/module";
+import ModuleModel from "../models/schemas/module";
 
-let { modules } = db;
-
-export const findModulesForCourse = (courseId: number) => {
-  return modules.filter((module) => module.course === courseId);
+export const findModulesForCourse = async (courseId: string) => {
+  try {
+    const modules = await ModuleModel.find({
+      course: new Types.ObjectId(courseId),
+    });
+    return modules;
+  } catch (error) {
+    return [];
+  }
 };
 
-export const createModule = (module: any) => {
-  const newModule = { ...module, _id: modules[modules.length - 1]._id + 1 };
-  modules = [...modules, newModule];
-  return newModule;
+export const createModule = async (module: Module) => {
+  try {
+    const newModule = new ModuleModel(module);
+    return await newModule.save();
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error creating module: " + error.message);
+    } else {
+      throw new Error("Error creating module: Unknown error");
+    }
+  }
 };
 
-export const updateModule = (moduleId: number, updatedModule: any) => {
-  const module: any = modules.find((module) => module._id === moduleId);
-  Object.assign(module, updatedModule);
-  return module;
+export const updateModule = async (moduleId: string, updatedModule: Module) => {
+  try {
+    return await ModuleModel.findByIdAndUpdate(
+      // new Types.ObjectId(moduleId),
+      moduleId,
+      updatedModule,
+      {
+        new: true,
+      }
+    );
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error updating module: " + error.message);
+    } else {
+      throw new Error("Error updating module: Unknown error");
+    }
+  }
 };
 
-export const deleteModule = (moduleId: number) => {
-  modules = modules.filter((module) => module._id !== moduleId);
+export const deleteModule = async (moduleId: string) => {
+  try {
+    return await ModuleModel.findByIdAndDelete(moduleId);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error deleting module: " + error.message);
+    } else {
+      throw new Error("Error deleting module: Unknown error");
+    }
+  }
 };

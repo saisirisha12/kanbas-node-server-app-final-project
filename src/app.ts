@@ -9,8 +9,12 @@ import CourseController from "./kanbas/controller/course";
 import ModuleController from "./kanbas/controller/module";
 import EnrollmentController from "./kanbas/controller/enrollment";
 import AssignmentController from "./kanbas/controller/assignment";
+import mongoose from "mongoose";
 
 const port = process.env.PORT || 4000;
+const CONNECTION_STRING =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/kanbas";
+mongoose.connect(CONNECTION_STRING);
 const app = express();
 
 app.use(

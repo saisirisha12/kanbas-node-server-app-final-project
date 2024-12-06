@@ -2,17 +2,17 @@ import { Application } from "express";
 import * as dao from "../dao/courseDao";
 
 export default function EnrollmentController(app: Application) {
-  const enrollUserInCourse = (req: any, res: any) => {
-    const userId = parseInt(req.params.userId);
-    const courseId = parseInt(req.params.courseId);
-    dao.enrollUserInCourse(userId, courseId);
+  const enrollUserInCourse = async (req: any, res: any) => {
+    const userId = req.params.userId;
+    const courseId = req.params.courseId;
+    await dao.enrollUserInCourse(userId, courseId);
     res.sendStatus(200);
   };
 
-  const unenrollUserFromCourse = (req: any, res: any) => {
-    const userId = parseInt(req.params.userId);
-    const courseId = parseInt(req.params.courseId);
-    dao.unenrollUserFromCourse(userId, courseId);
+  const unenrollUserFromCourse = async (req: any, res: any) => {
+    const userId = req.params.userId;
+    const courseId = req.params.courseId;
+    await dao.unenrollUserFromCourse(userId, courseId);
     res.sendStatus(200);
   };
 

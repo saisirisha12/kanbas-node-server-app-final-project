@@ -28,8 +28,8 @@ const quizSchema = new Schema(
     attempts: { type: Number, default: 1 },
     showCorrectAnswers: {
       type: String,
-      enum: ["NEVER", "AFTER_PUBLISHED", "AFTER_LAST_ATTEMPT", "IMMEDIATELY"],
-      default: "AFTER_PUBLISHED",
+      enum: ["Never", "After Published", "After Last Attempt", "Immediately"],
+      default: "After Published",
     },
     accessCode: { type: String, default: "" },
     oneQuestionAtATime: { type: Boolean, default: true },

@@ -2,7 +2,6 @@ import { Types } from "mongoose";
 import { Assignment } from "../models/assignment";
 import AssignmentModel from "../models/schemas/assignment";
 import CourseModel from "../models/schemas/course";
-import { Course } from "../models/course";
 
 export const findAssignmentsForCourse = async (courseId: string) => {
   try {

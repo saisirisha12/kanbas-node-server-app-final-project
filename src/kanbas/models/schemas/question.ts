@@ -1,5 +1,13 @@
 import { model, Schema } from "mongoose";
 
+const optionSchema = new Schema(
+  {
+    id: { type: Number, required: true },
+    text: { type: String, required: true },
+  },
+  { _id: false }
+);
+
 const questionSchema = new Schema(
   {
     title: { type: String, required: true },
@@ -7,11 +15,11 @@ const questionSchema = new Schema(
     quiz: { type: Schema.Types.ObjectId, ref: "Quiz", required: true },
     type: {
       type: String,
-      enum: ["MULTIPLE_CHOICE", "TRUE_FALSE", "SHORT_ANSWER"],
-      default: "MULTIPLE_CHOICE",
+      enum: ["Multiple Choice", "True/False", "Fill in the Blanks"],
+      default: "Multiple Choice",
     },
-    options: [{ type: String }],
-    correctAnswer: { type: String },
+    options: [{ type: Object, required: false }],
+    correctAnswer: [{ type: Object, required: false }],
     points: { type: Number, required: true },
   },
   { collection: "questions" }

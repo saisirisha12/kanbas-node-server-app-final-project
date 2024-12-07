@@ -10,6 +10,7 @@ import ModuleController from "./kanbas/controller/module";
 import EnrollmentController from "./kanbas/controller/enrollment";
 import AssignmentController from "./kanbas/controller/assignment";
 import mongoose from "mongoose";
+import QuizController from "./kanbas/controller/quiz";
 
 const port = process.env.PORT || 4000;
 const CONNECTION_STRING =
@@ -48,6 +49,7 @@ CourseController(app);
 EnrollmentController(app);
 ModuleController(app);
 AssignmentController(app);
+QuizController(app);
 
 Hello(app);
 Lab5(app);

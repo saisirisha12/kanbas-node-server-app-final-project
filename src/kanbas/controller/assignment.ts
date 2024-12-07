@@ -1,6 +1,5 @@
 import { Application } from "express";
 import * as dao from "../dao/assignmentDao";
-import { Types } from "mongoose";
 
 export default function AssignmentController(app: Application) {
   const findAssignmentsForCourse = async (req: any, res: any) => {

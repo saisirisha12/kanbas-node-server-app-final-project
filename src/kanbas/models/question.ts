@@ -5,6 +5,6 @@ export interface Question {
   quiz: string;
   type: string;
   options: string[];
-  correctAnswer: string;
+  correctAnswer: string[];
   points: number;
 }

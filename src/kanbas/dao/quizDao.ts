@@ -90,3 +90,27 @@ export const addQuestionToQuiz = async (quizId: string, question: Question) => {
     }
   }
 };
+
+export const findQuestionsForQuiz = async (quizId: string) => {
+  try {
+    return await QuestionModel.find({ quiz: quizId });
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error finding questions: " + error.message);
+    } else {
+      throw new Error("Error fetching questions: Unknown error");
+    }
+  }
+}
+
+export const deleteQuestion = async (questionId: string) => {
+  try {
+    return await QuestionModel.findByIdAndDelete(questionId);
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error deleting question: " + error.message);
+    } else {
+      throw new Error("Error deleting question: Unknown error");
+    }
+  }
+};

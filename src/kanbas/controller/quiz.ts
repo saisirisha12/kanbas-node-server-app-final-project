@@ -41,11 +41,27 @@ export default function QuizController(app: Application) {
     res.json(newQuestion);
   };
 
+  const findQuestionsForQuiz = async (req: any, res: any) => {
+    const quizId = req.params.id;
+    console.log("Quiz ID:", quizId);
+    const questions = await dao.findQuestionsForQuiz(quizId);
+    console.log(questions);
+    res.json(questions);
+  };
+
+  const deleteQuestion = async (req: any, res: any) => {
+    const questionId = req.params.id;
+    await dao.deleteQuestion(questionId);
+    res.sendStatus(204);
+  };
+
   app.get("/api/courses/:id/quizzes", findQuizzesForCourse);
   app.get("/api/courses/:courseId/quizzes/:id", findQuizById);
   app.post("/api/courses/:id/quizzes", createQuiz);
   app.put("/api/quizzes/:id", updateQuiz);
   app.delete("/api/quizzes/:id", deleteQuiz);
-
+  
   app.post("/api/quizzes/:id/questions", addQuestionToQuiz);
+  app.get("/api/quizzes/:id/questions", findQuestionsForQuiz);
+  app.delete("/api/questions/:id", deleteQuestion);
 }

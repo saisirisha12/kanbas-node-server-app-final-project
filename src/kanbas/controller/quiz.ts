@@ -60,6 +60,18 @@ export default function QuizController(app: Application) {
     res.json(question);
   };
 
+  const addAnswerToQuiz = async (req: any, res: any) => {
+    const quizAttempt = req.body
+    const newAttempt = await dao.addAnswerToQuiz(quizAttempt);
+    res.json(newAttempt);
+  };
+  const getQuizAttempts = async(req:any,res:any) => {
+    const id = req.params;
+    const userId = req.params;
+    const allowedAttempts = await dao.countAttemptsForUserAndQuiz(userId,id)
+    res.json(allowedAttempts);
+  }
+
   app.get("/api/courses/:id/quizzes", findQuizzesForCourse);
   app.get("/api/courses/:courseId/quizzes/:id", findQuizById);
   app.post("/api/courses/:id/quizzes", createQuiz);
@@ -70,4 +82,7 @@ export default function QuizController(app: Application) {
   app.get("/api/quizzes/:id/questions", findQuestionsForQuiz);
   app.delete("/api/questions/:id", deleteQuestion);
   app.put("/api/questions/:id", updateQuestion);
+
+  app.post("/api/quizzes/:id/answers", addAnswerToQuiz);
+  app.get("/api/quizzes/:id/users/:userId/allowedAttempts", getQuizAttempts);
 }

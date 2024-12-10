@@ -12,6 +12,7 @@ const quizAttemptSchema = new Schema(
     attemptNumber: { type: Number, required: true },
     answers: [answerSchema],
     score: { type: Number, required: true },
+    date: { type: Date, required: false },
   },
   { collection: "quizAttempts" }
 );

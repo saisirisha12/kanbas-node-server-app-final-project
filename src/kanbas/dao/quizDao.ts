@@ -1,8 +1,10 @@
 import { Question } from "../models/question";
 import { Quiz } from "../models/quiz";
+import { QuizAttempt } from "../models/quizAttempt";
 import CourseModel from "../models/schemas/course";
 import QuestionModel from "../models/schemas/question";
 import QuizModel from "../models/schemas/quiz";
+import QuizAttemptModel from "../models/schemas/quizAttempt"
 
 export const findQuizzesForCourse = async (courseId: string) => {
   try {
@@ -124,6 +126,47 @@ export const updateQuestion = async (questionId: string, updatedData: Question) 
       throw new Error("Error updating quiz: " + error.message);
     } else {
       throw new Error("Error updating quiz: Unknown error");
+    }
+  }
+};
+
+export const addAnswerToQuiz = async(quizAttempt:QuizAttempt) => {
+  try {
+    const newAttempt = new QuizAttemptModel({
+      ...quizAttempt,
+      })
+      return await newAttempt.save();
+  }
+  catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error adding question: " + error.message);
+    } else {
+      throw new Error("Error adding question: Unknown error");
+    }
+  }
+}
+ 
+export const countAttemptsForUserAndQuiz = async (userId: string, quizId: string) => {
+  try {
+    const result = await QuizAttemptModel.aggregate([
+      {
+        $match: {
+          student: userId,
+          quiz: quizId,
+        },
+      },
+      {
+        $count: "attemptCount",  // This will return the count as "attemptCount"
+      },
+    ]);
+ 
+    // If the result array is empty, return 0 (no attempts)
+    return result.length > 0 ? result[0].attemptCount : 0;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error counting quiz attempts: " + error.message);
+    } else {
+      throw new Error("Error counting quiz attempts: Unknown error");
     }
   }
 };

@@ -75,7 +75,6 @@ export const deleteQuiz = async (quizId: string) => {
 };
 
 export const addQuestionToQuiz = async (quizId: string, question: Question) => {
-  console.log("Adding question to quiz", question);
   try {
     const newQuestion = new QuestionModel({
       ...question,
@@ -111,6 +110,20 @@ export const deleteQuestion = async (questionId: string) => {
       throw new Error("Error deleting question: " + error.message);
     } else {
       throw new Error("Error deleting question: Unknown error");
+    }
+  }
+};
+
+export const updateQuestion = async (questionId: string, updatedData: Question) => {
+  try {
+    return await QuestionModel.findByIdAndUpdate(questionId, updatedData, {
+      new: true,
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error updating quiz: " + error.message);
+    } else {
+      throw new Error("Error updating quiz: Unknown error");
     }
   }
 };

@@ -66,11 +66,17 @@ export default function QuizController(app: Application) {
     res.json(newAttempt);
   };
   const getQuizAttempts = async(req:any,res:any) => {
-    const id = req.params;
-    const userId = req.params;
-    const allowedAttempts = await dao.countAttemptsForUserAndQuiz(userId,id)
+    const {id, userId} = req.params;
+    const allowedAttempts = await dao.findLatestQuizAttempt(id, userId);
+    res.json(allowedAttempts);
+  };
+
+  const calcQuizScore= async(req:any,res:any) => {
+    const {id,userId} = req.params;
+    const allowedAttempts = await dao.calculateScoreForQuizAttempt(id,userId)
     res.json(allowedAttempts);
   }
+
 
   app.get("/api/courses/:id/quizzes", findQuizzesForCourse);
   app.get("/api/courses/:courseId/quizzes/:id", findQuizById);
@@ -85,4 +91,7 @@ export default function QuizController(app: Application) {
 
   app.post("/api/quizzes/:id/answers", addAnswerToQuiz);
   app.get("/api/quizzes/:id/users/:userId/allowedAttempts", getQuizAttempts);
+  app.get("/api/quizzes/:id/users/:userId/calcScore", calcQuizScore);
+
+  
 }

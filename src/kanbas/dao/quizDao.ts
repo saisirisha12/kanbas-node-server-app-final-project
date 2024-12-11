@@ -170,3 +170,74 @@ export const countAttemptsForUserAndQuiz = async (userId: string, quizId: string
     }
   }
 };
+
+export const findLatestQuizAttempt = async ( quizId: string, userId: string) => {
+  try {
+    const res =  await QuizAttemptModel.findOne({ quiz: quizId, student: userId  })
+      .sort({ date: -1 }) // Sort by date in descending order
+      .exec();
+    return res
+     
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error finding latest quiz attempt: " + error.message);
+    } else {
+      throw new Error("Error fetching latest quiz attempt: Unknown error");
+    }
+  }
+};
+
+export const calculateScoreForQuizAttempt = async (quizId: string, userId: string) => {
+  try {
+    // Find the latest quiz attempt
+    const latestAttempt = await QuizAttemptModel.findOne({ student: userId, quiz: quizId })
+      .sort({ date: -1 })
+      .populate('answers.question') // You can remove this if you want to manually fetch each question
+      .exec();
+ 
+    if (!latestAttempt) {
+      throw new Error('No quiz attempt found for this user and quiz');
+    }
+ 
+    let totalScore = 0;
+ 
+    // Loop through each answer in the quiz attempt
+    for (let answer of latestAttempt.answers) {
+ 
+      const questionId = answer.question;  // The ObjectId of the question
+ 
+      // Fetch the question from the QuestionModel by _id
+      const question = await QuestionModel.findById(questionId).exec();
+      if (!question) {
+        throw new Error(`Question not found for questionId: ${questionId}`);
+      }
+ 
+      // Check if the provided answer matches the correct answer(s) in the question
+      const correctAnswer = question.correctAnswers[0].text;
+ 
+      if (Array.isArray(correctAnswer)) {
+        // Handle cases where correctAnswers could be multiple (e.g., multiple-choice)
+        if (correctAnswer.includes(answer.answer)) {
+          totalScore += question.points;
+        }
+      } else {
+        // Handle cases where the correct answer is a single value (e.g., True/False, Fill in the blanks)
+        if (correctAnswer === answer.answer) {
+          totalScore += question.points;
+        }
+      }
+    }
+ 
+    // Update the score for the quiz attempt
+    latestAttempt.score = totalScore;
+    await latestAttempt.save();
+ 
+    // return latestAttempt;  // Return the updated quiz attempt with the calculated score
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error('Error calculating score for quiz attempt: ' + error.message);
+    } else {
+      throw new Error('Error calculating score for quiz attempt: Unknown error');
+    }
+  }
+};

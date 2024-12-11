@@ -82,6 +82,20 @@ export const addQuestionToQuiz = async (quizId: string, question: Question) => {
       ...question,
       quiz: quizId,
     });
+
+    const quiz = await QuizModel.findById(quizId);
+    if (!quiz) {
+      throw new Error("Quiz not found");
+    }
+
+    // Calculate the new total points by summing points of all questions in the quiz
+    const questions = await QuestionModel.find({ quiz: quizId });
+    const totalPoints = questions.reduce((sum, question) => sum + question.points, 0);
+
+    // Update the quiz points
+    quiz.points = totalPoints;
+    await quiz.save(); // Save the updated quiz
+
     return await newQuestion.save();
   } catch (error) {
     if (error instanceof Error) {
@@ -118,9 +132,27 @@ export const deleteQuestion = async (questionId: string) => {
 
 export const updateQuestion = async (questionId: string, updatedData: Question) => {
   try {
-    return await QuestionModel.findByIdAndUpdate(questionId, updatedData, {
+    const updatedQuestion = await QuestionModel.findByIdAndUpdate(questionId, updatedData, {
       new: true,
     });
+
+    if (!updatedQuestion) {
+      throw new Error("Question not found");
+    }
+
+    const quiz = await QuizModel.findById(updatedQuestion.quiz);
+    if (!quiz) {
+      throw new Error("Quiz not found");
+    }
+
+    const questions = await QuestionModel.find({ quiz: updatedQuestion.quiz });
+    const totalPoints = questions.reduce((sum, question) => sum + question.points, 0);
+
+    quiz.points = totalPoints;
+    await quiz.save(); 
+
+    return updatedQuestion; 
+
   } catch (error) {
     if (error instanceof Error) {
       throw new Error("Error updating quiz: " + error.message);
@@ -146,22 +178,14 @@ export const addAnswerToQuiz = async(quizAttempt:QuizAttempt) => {
   }
 }
  
-export const countAttemptsForUserAndQuiz = async (userId: string, quizId: string) => {
+export const countAttemptsForUserAndQuiz = async (quizId: string, userId: string) => {
   try {
-    const result = await QuizAttemptModel.aggregate([
-      {
-        $match: {
-          student: userId,
-          quiz: quizId,
-        },
-      },
-      {
-        $count: "attemptCount",  // This will return the count as "attemptCount"
-      },
-    ]);
- 
+    const attemptCount = await QuizAttemptModel.countDocuments({
+      student: userId,
+      quiz: quizId,
+    }).exec();
     // If the result array is empty, return 0 (no attempts)
-    return result.length > 0 ? result[0].attemptCount : 0;
+    return attemptCount;
   } catch (error) {
     if (error instanceof Error) {
       throw new Error("Error counting quiz attempts: " + error.message);
@@ -241,3 +265,21 @@ export const calculateScoreForQuizAttempt = async (quizId: string, userId: strin
     }
   }
 };
+
+export const calculateQuizPoints = async (quizId: string) => {
+  try {
+    const questions = await QuestionModel.find({ quiz: quizId });
+    const totalPoints = questions.reduce((sum, question) => {
+      return sum + question.points;  
+    }, 0); 
+
+    return totalPoints;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error("Error finding questions: " + error.message);
+    } else {
+      throw new Error("Error fetching questions: Unknown error");
+    }
+  }
+}
+

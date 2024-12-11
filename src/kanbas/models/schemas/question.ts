@@ -19,7 +19,7 @@ const questionSchema = new Schema(
       default: "Multiple Choice",
     },
     options: [{ type: Object, required: false }],
-    correctAnswer: [{ type: Object, required: false }],
+    correctAnswers: [{ type: Object, required: false }],
     points: { type: Number, required: true },
   },
   { collection: "questions" }
